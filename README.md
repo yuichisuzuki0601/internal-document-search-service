@@ -28,6 +28,7 @@ $ cp application-variable.yml.example application-variable.yml
 ```
 
 ### 〜ミドルウェア環境用意〜
+* javaのインストール
 * dockerのインストール
 * 以下コマンド実行
 
