@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ysd="http://ysd.co.jp/ysd"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://ysd.co.jp/ysd
+	http://ysd.co.jp/ysd.xsd">
+
+	<ysd:query id="compileWordGroupsSelect">
+		<ysd:source>
+			SELECT
+				id,
+				name,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			FROM
+				compile_word_groups
+			ORDER BY
+				name
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordGroupsSelectById">
+		<ysd:source>
+			SELECT
+				id,
+				name,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			FROM
+				compile_word_groups
+			WHERE
+				id = :id
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordGroupsInsert">
+		<ysd:source>
+			INSERT INTO compile_word_groups (
+				name,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			) VALUES (
+				:name,
+				CURRENT_TIMESTAMP,
+				:createdBy,
+				CURRENT_TIMESTAMP,
+				:updatedBy
+			)
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordGroupsUpdateById">
+		<ysd:source>
+			UPDATE compile_word_groups SET
+				name = :name,
+				updated_at = CURRENT_TIMESTAMP,
+				updated_by = :updatedBy
+			WHERE
+				id = :id
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordGroupsDeleteByIds">
+		<ysd:source>
+			DELETE FROM compile_word_groups
+			WHERE id IN (:ids)
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordGroupsDeleteById">
+		<ysd:source>
+			DELETE FROM compile_word_groups
+			WHERE id = :id
+		</ysd:source>
+	</ysd:query>
+
+</beans>

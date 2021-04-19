@@ -1,0 +1,14 @@
+{
+	"cols": [
+		{"name": "id", "type": "bigint AUTO_INCREMENT"},
+		{"name": "compile_word_group_id", "type": "bigint not null"},
+		{"name": "compile_before", "type": "nvarchar(100) not null"},
+		{"name": "compile_after", "type": "text not null"},
+		{"name": "created_at", "type": "datetime not null"},
+		{"name": "created_by", "type": "nvarchar(100) not null"},
+		{"name": "updated_at", "type": "datetime not null"},
+		{"name": "updated_by", "type": "nvarchar(100) not null"}
+	],
+	"pk": "id",
+	"uq": "compile_before"
+}

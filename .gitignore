@@ -1,0 +1,10 @@
+.settings/
+bin/
+docker/volumes/
+logs/
+src/main/resources/application-variable.yml
+src/main/resources/static/
+target/
+.classpath
+.DS_Store
+.project

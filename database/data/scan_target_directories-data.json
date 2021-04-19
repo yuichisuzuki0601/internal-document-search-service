@@ -1,0 +1,11 @@
+[
+	{
+		"name": "ダミーデータ",
+		"path": "./elasticsearch/dummy-data",
+		"extension": "txt",
+		"created_at": "CURRENT_TIMESTAMP",
+		"created_by": "system",
+		"updated_at": "CURRENT_TIMESTAMP",
+		"updated_by": "system"
+	}
+]

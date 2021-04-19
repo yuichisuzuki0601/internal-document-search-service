@@ -1,0 +1,12 @@
+{
+	"cols": [
+		{
+			"name": "compile_word_group_id",
+			"references": {
+				"table": "compile_word_groups",
+				"col": "id"
+			},
+			"option": "ON UPDATE NO ACTION ON DELETE CASCADE"
+		}
+	]
+}

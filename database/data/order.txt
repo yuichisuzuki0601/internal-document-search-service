@@ -1,0 +1,3 @@
+compile_word_groups-data.json
+compile_words-data.json
+scan_target_directories-data.json

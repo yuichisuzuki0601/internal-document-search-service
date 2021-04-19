@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include
+		resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	<include resource="logback-file-appender.xml" />
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ASYNC_APPLICATION_LOG_FILE" />
+	</root>
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework.data.convert.CustomConversions" level="ERROR" />
+	<logger name="com.zaxxer.hikari" level="WARN" />
+</configuration>

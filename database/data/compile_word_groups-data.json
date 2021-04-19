@@ -1,0 +1,16 @@
+[
+	{
+		"name": "東京JR",
+		"created_at": "CURRENT_TIMESTAMP",
+		"created_by": "system",
+		"updated_at": "CURRENT_TIMESTAMP",
+		"updated_by": "system"
+	},
+	{
+		"name": "東京地下鉄",
+		"created_at": "CURRENT_TIMESTAMP",
+		"created_by": "system",
+		"updated_at": "CURRENT_TIMESTAMP",
+		"updated_by": "system"
+	}
+]

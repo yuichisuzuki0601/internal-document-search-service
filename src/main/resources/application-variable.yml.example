@@ -1,0 +1,14 @@
+variable:
+  log:
+    filename: idss
+    level: INFO
+
+  webserver:
+    port: 8080
+    timeout: 1800
+
+  database:
+    schema: idss
+    username: idss_user
+    password: idss_user_pass
+    timezone: UTC

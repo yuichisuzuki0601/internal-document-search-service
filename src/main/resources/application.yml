@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    include: 
+      - variable
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/${variable.database.schema:idss}
+    username: ${variable.database.username:idss_user}
+    password: ${variable.database.password:idss_user_pass}
+
+server:
+  port: ${variable.webserver.port:8080}
+  servlet:
+    session:
+      timeout: ${variable.webserver.timeout:1800}
+
+logging:
+  level:
+    "[jp.co.ysd.internal_document_search_service]": ${variable.log.level:INFO}
+
+database:
+  timezone: ${variable.database.timezone:UTC}
+
+elasticsearch:
+  host: localhost
+  port: 9200
+
+batch:
+  enable: true
+  scanDirectoryTask:
+    execute: true
+    executeIntervalSeconds: 300
+  periodicDeleteIndexTask:
+    execute: true
+    executeIntervalSeconds: 86400
+    expireDays: 30

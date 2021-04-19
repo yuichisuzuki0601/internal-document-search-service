@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ysd="http://ysd.co.jp/ysd"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://ysd.co.jp/ysd
+	http://ysd.co.jp/ysd.xsd">
+
+	<ysd:query id="compileWordsSelectById">
+		<ysd:source>
+			SELECT
+				id,
+				compile_word_group_id,
+				compile_before,
+				compile_after,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			FROM
+				compile_words
+			WHERE
+				id = :id
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordsSelectByCompileWordGroupId">
+		<ysd:source>
+			SELECT
+				id,
+				compile_word_group_id,
+				compile_before,
+				compile_after,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			FROM
+				compile_words
+			WHERE
+				compile_word_group_id = :compileWordGroupId
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordsSelectByCompileBefores">
+		<ysd:source>
+			SELECT
+				id,
+				compile_word_group_id,
+				compile_before,
+				compile_after,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			FROM
+				compile_words
+			WHERE
+				compile_before IN (:compileBefores)
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordsInsert">
+		<ysd:source>
+			INSERT INTO compile_words (
+				compile_word_group_id,
+				compile_before,
+				compile_after,
+				created_at,
+				created_by,
+				updated_at,
+				updated_by
+			) VALUES (
+				:compileWordGroupId,
+				:compileBefore,
+				:compileAfter,
+				CURRENT_TIMESTAMP,
+				:createdBy,
+				CURRENT_TIMESTAMP,
+				:updatedBy
+			)
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordsUpdateById">
+		<ysd:source>
+			UPDATE compile_words SET
+				compile_word_group_id = :compileWordGroupId,
+				compile_before = :compileBefore,
+				compile_after = :compileAfter,
+				updated_at = CURRENT_TIMESTAMP,
+				updated_by = :updatedBy
+			WHERE
+				id = :id
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordsDeleteByIds">
+		<ysd:source>
+			DELETE FROM compile_words
+			WHERE id IN (:ids)
+		</ysd:source>
+	</ysd:query>
+
+	<ysd:query id="compileWordsDeleteById">
+		<ysd:source>
+			DELETE FROM compile_words
+			WHERE id = :id
+		</ysd:source>
+	</ysd:query>
+
+</beans>

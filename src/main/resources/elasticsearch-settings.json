@@ -1,0 +1,20 @@
+{
+	"analysis": {
+		"filter": {
+			"greek_lowercase_filter": {
+				"type": "lowercase",
+				"language": "greek"
+			}
+		},
+		"analyzer": {
+			"default": {
+				"tokenizer": "kuromoji_tokenizer",
+				"filter": [
+					"kuromoji_baseform",
+					"greek_lowercase_filter",
+					"cjk_width"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"cols": [
+		{"name": "id", "type": "bigint AUTO_INCREMENT"},
+		{"name": "name", "type": "nvarchar(100) not null"},
+		{"name": "path", "type": "nvarchar(100) not null"},
+		{"name": "extension", "type": "nvarchar(10) not null"},
+		{"name": "created_at", "type": "datetime not null"},
+		{"name": "created_by", "type": "nvarchar(100) not null"},
+		{"name": "updated_at", "type": "datetime not null"},
+		{"name": "updated_by", "type": "nvarchar(100) not null"}
+	],
+	"pk": "id",
+	"uq": "name"
+}

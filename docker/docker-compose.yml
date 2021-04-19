@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: idss-mysql
+    command: mysqld --character-set-server=utf8 --max_allowed_packet=16M
+    environment:
+      MYSQL_ROOT_HOST: localhost
+      MYSQL_ROOT_PASSWORD: idss_admin_pass
+      MYSQL_DATABASE: idss
+      MYSQL_USER: idss_user
+      MYSQL_PASSWORD: idss_user_pass
+      TZ: UTC
+    ports:
+      - 3306:3306
+    volumes:
+      - ./volumes/mysql/var/lib/mysql:/var/lib/mysql
+
+  elasticsearch:
+    build: buildscript/idss-elasticsearch
+    image: idss-elasticsearch:latest
+    container_name: idss-elasticsearch
+    environment:
+      #- "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - bootstrap.memory_lock=true
+      - cluster.name=idss-cluster
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - default
+    volumes:
+      - ./volumes/elasticsearch/usr/share/elasticsearch/data:/usr/share/elasticsearch/data
+    ulimits:
+      nproc: 65536
+      nofile:
+        soft: 65536
+        hard: 65536
+  kibana:
+    image: kibana:7.9.3
+    container_name: idss-kibana
+    links:
+      - elasticsearch:elasticsearch
+    ports:
+      - 5601:5601
+    networks:
+      - default
+    depends_on:
+      - elasticsearch
+    profiles:
+      - all
